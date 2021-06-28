@@ -1,0 +1,64 @@
+﻿@section scripts {
+    @Scripts.Render("~/bundles/app")
+}
+
+<div class="page-header">
+    <h1>Reading Corp App</h1>
+</div>
+
+<div class="row">
+
+    <h1>Add a new book</h1>
+    <form id="form2" method="post" action="../api/book/create"
+          enctype="application/x-www-form-urlencoded">
+        <div>
+            <label for="Book_name">Book Name</label>
+        </div>
+        <div>
+            <input name="Book_name" type="text" />
+        </div>
+        <div>
+            <label for="author">Author</label>
+        </div>
+        <div>
+            <input name="Author" type="text" />
+        </div>
+        <div>
+            <label for="category">Category</label>
+        </div>
+        <select class="form-control" id="Category" name="Category">
+            <option>Thriller</option>
+            <option>Biography</option>
+            <option>History</option>
+            <option>Drama</option>
+        </select>
+        <div>
+            <label for="Description">Description</label>
+        </div>
+        <div>
+            <input name="Description" type="text" />
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">Books</h2>
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled" data-bind="foreach: books">
+                    <li>
+                        <strong><span data-bind="text: Book_name"></span></strong> : <span data-bind="text: Author"></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="alert alert-danger" data-bind="visible: error"><p data-bind="text: error"></p></div>
+    </div>
+
+
+
+</div>
